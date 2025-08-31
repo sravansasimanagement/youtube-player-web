@@ -1,69 +1,96 @@
-# React + TypeScript + Vite
+# YouTube Video Player (React + TypeScript + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📖 Project Overview
 
-Currently, two official plugins are available:
+A simple YouTube Video Player web application built with **React**, **TypeScript**, and **Vite**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app enables users to:
 
-## Expanding the ESLint configuration
+* Enter and save a YouTube video URL.
+* Autoplay the video.
+* Resume playback from the correct position (calculates real-world elapsed time).
+* Edit the saved YouTube video URL.
+* Visit a funny GIF page with a **Back** button to return to the video.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🏗️ Project Structure
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+youtube-player-web/
+├─ index.html
+├─ package.json
+├─ tsconfig.json
+├─ vite.config.ts
+└─ src/
+   ├─ main.tsx
+   ├─ App.tsx
+   ├─ routes.tsx
+   ├─ utils/
+   │  └─ youtube.ts
+   ├─ storage/
+   │  └─ videoState.ts
+   ├─ components/
+   │  └─ VideoPlayer.tsx
+   └─ pages/
+      ├─ HomePage.tsx
+      ├─ VideoPage.tsx
+      └─ GifPage.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. Clone the Repository
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone <your-repo-url>
+cd youtube-player-web
 ```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the Development Server
+
+```bash
+npm run dev
+```
+
+### 4. Open in Browser
+
+Open the local URL shown in your terminal (e.g., `http://localhost:5173`).
+
+## 🔑 Features
+
+* **Autoplay**: Video starts automatically (may be muted depending on browser autoplay policies).
+* **Playback Resume**: Resumes from the expected playback position, even after navigation or refresh.
+* **Edit Functionality**: Allows updating the saved YouTube URL.
+* **Funny GIF Page**: Displays a humorous GIF with a back navigation option.
+
+## 🛠️ Tech Stack
+
+* **React 18/19 compatible**
+* **TypeScript**
+* **Vite**
+* **React Router DOM**
+* **react-youtube** for YouTube embedding
+
+## 📦 Dependencies
+
+```json
+"dependencies": {
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "react-router-dom": "^6.26.2",
+  "react-youtube": "^10.1.0"
+}
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Fork the repo, open issues, and submit pull requests to enhance features and design.
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
